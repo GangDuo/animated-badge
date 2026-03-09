@@ -10,7 +10,10 @@ document.querySelector('animated-badge').style.setProperty('--check-color', '#f4
 class AnimatedBadge extends HTMLElement {
   static observedAttributes = ['playing'];
 
-  connectedCallback(): void {
+  readonly #badge: HTMLElement;
+
+  constructor() {
+    super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot!.innerHTML = `
       <style>
@@ -103,14 +106,15 @@ class AnimatedBadge extends HTMLElement {
       </style>
       <div class="badge"></div>
     `;
+    this.#badge = this.shadowRoot!.querySelector('.badge')!;
   }
 
   play(): void {
-    this.shadowRoot!.querySelector('.badge')!.classList.add('active', 'done');
+    this.#badge.classList.add('active', 'done');
   }
 
   reset(): void {
-    this.shadowRoot!.querySelector('.badge')!.classList.remove('active', 'done');
+    this.#badge.classList.remove('active', 'done');
   }
 
   attributeChangedCallback(name: string, _oldVal: string | null, newVal: string | null): void {
