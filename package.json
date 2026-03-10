@@ -1,0 +1,24 @@
+{
+  "name": "animated-badge",
+  "version": "1.0.0",
+  "description": "アニメーション付きバッジ Web コンポーネント（check / cross / minus）",
+  "main": "dist/animated-badge.js",
+  "types": "dist/animated-badge.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "web-component",
+    "custom-element",
+    "badge",
+    "animation"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
